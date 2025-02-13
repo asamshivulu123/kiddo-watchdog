@@ -3,28 +3,39 @@ import { Bell, Layout, Settings } from "lucide-react";
 import { ActivityCard } from "@/components/ActivityCard";
 import { InsightsPanel } from "@/components/InsightsPanel";
 import { Button } from "@/components/ui/button";
+import { analyzeActivity } from "@/utils/aiAnalysis";
 
 const Index = () => {
   const activities = [
     {
       title: "Online Learning",
-      duration: "45 minutes",
+      duration: "45",
       type: "Education",
       time: "10:30 AM",
     },
     {
       title: "Gaming Session",
-      duration: "30 minutes",
+      duration: "30",
       type: "Entertainment",
       time: "2:15 PM",
     },
     {
       title: "Reading Time",
-      duration: "20 minutes",
+      duration: "20",
       type: "Education",
       time: "4:00 PM",
     },
+    {
+      title: "Video Streaming",
+      duration: "60",
+      type: "Entertainment",
+      time: "7:00 PM",
+    }
   ];
+
+  // Analyze activities using AI
+  const analysisResults = analyzeActivity(activities);
+  console.log('AI Analysis Results:', analysisResults);
 
   return (
     <div className="min-h-screen bg-gray-50">
